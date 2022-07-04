@@ -1,6 +1,5 @@
 <?php
 namespace App;
-error_reporting(0);
 require_once __DIR__.'/../vendor/autoload.php';
 class Scrape
 {
@@ -15,6 +14,7 @@ class Scrape
             $productsPerPage = ScrapeHelper::fetchDocument("https://www.magpiehq.com/developer-challenge/smartphones/?page=$i");
             $this->products = array_merge($this->products,$productsPerPage);
         }
+
         file_put_contents('output.json', json_encode($this->products, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }

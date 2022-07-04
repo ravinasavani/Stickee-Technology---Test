@@ -32,7 +32,7 @@ class ScrapeHelper
                 if(strpos($capacity, 'GB') !== false) 
                 {
                     $capacityMB = preg_split("/[GB\s]/", $capacity);
-                    $capacityMB = $capacityMB[0]."000";
+                    $capacityMB = (int)$capacityMB[0] * 1000;
                 }
                 if(strpos($capacity, 'MB') !== false) 
                 {
